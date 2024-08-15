@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Independence Day!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Matemasie&family=New+Amsterdam&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grey+Qo&family=Matemasie&family=New+Amsterdam&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="flower-container"></div>
+
+<div class="flag-container ">
+    <div class="saffron frame"></div>
+    <div class="white frame"></div>
+    <div class="green frame"></div>
+    <div class="chakra-container">
+        <img class="chakra-img" src='https://cdn.pixabay.com/photo/2023/04/06/16/29/ashoka-chakra-7904695_1280.png' alt='Ashoka Chakra'/>
+    </div>
+    
+</div>
+
+<audio id="background-music" src="https://res.cloudinary.com/dileepgorantala/video/upload/v1723695269/Desh_Bhakti_Background_Music_No_Copyright_ohqs11.mp3" loop></audio>
+<button id="play-button">Play Music</button>
+
+
+
+<h1>Happy Independence Day</h1>
+    <h2>-Dileep Gorantala</h2>
+    <script>
+        function createFlower() {
+            // Array of flower images
+            const flowerImages = [
+                'https://res.cloudinary.com/dileepgorantala/image/upload/v1723693718/pngegg_2_yxd2if.png',  // Replace with the URL of your first flower image
+                'https://res.cloudinary.com/dileepgorantala/image/upload/v1723694292/pngegg_6_tr6lnj.png',  // Replace with the URL of your second flower image
+                'https://res.cloudinary.com/dileepgorantala/image/upload/v1723694294/pngegg_3_om5ov6.png',
+                'https://res.cloudinary.com/dileepgorantala/image/upload/v1723694305/pngegg_4_tzo9bb.png',
+                'https://res.cloudinary.com/dileepgorantala/image/upload/v1723694322/pngegg_5_zhdliq.png'   // Replace with the URL of your third flower image
+            ];
+        
+            // Select a random image from the array
+            const randomImage = flowerImages[Math.floor(Math.random() * flowerImages.length)];
+        
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.style.left = `${Math.random() * 100}vw`;
+            flower.style.animationDuration = `${Math.random() * 5 + 5}s`; // random duration between 5s and 10s
+            flower.style.animationDelay = `${Math.random() * 5}s`; // random delay up to 5s
+            flower.style.backgroundImage = `url('${randomImage}')`; // Set the random image as background
+            document.getElementById('flower-container').appendChild(flower);
+            
+            // Remove the flower after it has fallen
+            flower.addEventListener('animationend', () => {
+                flower.remove();
+            });
+        }
+        
+        // Create flowers at intervals
+        setInterval(createFlower, 4000); // Adjust this value to control the number of flowers
+        </script>
+        
+        <script>
+            document.getElementById('play-button').addEventListener('click', function() {
+                const audio = document.getElementById('background-music');
+                if (audio.paused) {
+                    audio.play();
+                    this.textContent = 'Pause Music'; // Update button text
+                } else {
+                    audio.pause();
+                    this.textContent = 'Play Music'; // Update button text
+                }
+            });
+            </script>
+            
+            
+        
+</body>
+</html>
